@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Organizatoriaus skydas – Slaptasis Kalėdų senelis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 8.5 8.5h7L12 3Z" /><path d="M12 7.5 7 14h10l-5-6.5Z" /><path d="M12 12.5 5.5 20h13L12 12.5Z" /><path d="M12 20v2" />
+          </svg>
+        </span>
+        <div>
+          <div class="name" id="brand-title">Organizatoriaus skydas</div>
+          <div class="tag">Tvarkyk dalyvius, nuorodas ir burtus</div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span class="pill" id="status-pill" hidden><span class="dot"></span><span id="status-text">Ruošiama</span></span>
+        <button id="logout" class="btn ghost" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><path d="m16 17 5-5-5-5" /><path d="M21 12H9" /></svg>
+          Atsijungti
+        </button>
+      </div>
+    </header>
+
+    <section id="login-view" class="login-shell" hidden>
+      <div class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">
+              <span class="icon-chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg></span>
+              Organizatoriaus prisijungimas
+            </div>
+            <p class="card-sub">Įvesk slaptažodį, kad galėtum valdyti šį žaidimą.</p>
+          </div>
+        </div>
+        <p id="login-error" class="alert error" hidden></p>
+        <form id="login-form" autocomplete="off" class="stack" style="gap:16px">
+          <div class="field">
+            <label for="password">Slaptažodis</label>
+            <input type="password" id="password" placeholder="Organizatoriaus slaptažodis" />
+          </div>
+          <div class="btn-row">
+            <button class="btn primary block" type="submit">Prisijungti</button>
+          </div>
+          <a class="btn ghost block" href="/">Grįžti į pradžią</a>
+        </form>
+      </div>
+    </section>
+
+    <main id="dash-view" class="stack" hidden>
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">
+              <span class="icon-chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18" /></svg></span>
+              Renginio valdymas
+            </div>
+            <p class="card-sub" id="event-sub">Pradėk renginį, kai visi prisijungs. Tada dalyviai galės traukti vardus.</p>
+          </div>
+        </div>
+
+        <p id="draw-error" class="alert error" hidden></p>
+
+        <div class="btn-row" style="margin-bottom:20px">
+          <button id="primary-action" class="btn primary"></button>
+          <button id="reset-event" class="btn ghost">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" /><path d="M3 3v5h5" /></svg>
+            Atstatyti
+          </button>
+        </div>
+
+        <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+        <p class="card-sub" id="progress-text" style="margin-top:10px"></p>
+      </section>
+
+      <section class="card">
+        <div class="stats">
+          <div class="stat">
+            <div class="value" id="stat-total">0</div>
+            <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>Dalyviai</div>
+          </div>
+          <div class="stat">
+            <div class="value" id="stat-joined">0</div>
+            <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" /></svg>Atidarė nuorodą</div>
+          </div>
+          <div class="stat">
+            <div class="value" id="stat-spun">0</div>
+            <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.4 6.7 19.1l1-5.8L3.5 9.2l5.9-.9L12 3Z" /></svg>Ištraukė vardą</div>
+          </div>
+          <div class="stat">
+            <div class="value" id="stat-waiting">0</div>
+            <div class="label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>Dar netraukė</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="add-card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">
+              <span class="icon-chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14" /></svg></span>
+              Pridėti dalyvį
+            </div>
+            <p class="card-sub">Kiekvienas dalyvis gauna unikalią nuorodą. Kiekvienas traukimas parenka atsitiktinį, dar nepaimtą žmogų.</p>
+          </div>
+        </div>
+        <p id="add-error" class="alert error" hidden></p>
+        <form id="add-form" class="form-row" autocomplete="off">
+          <div class="field grow">
+            <label for="new-name">Dalyvio vardas</label>
+            <input type="text" id="new-name" maxlength="40" placeholder="pvz., Jonas" />
+          </div>
+          <button class="btn" type="submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14" /></svg>
+            Pridėti
+          </button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <div>
+            <div class="card-title">
+              <span class="icon-chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7L12 5" /><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7L12 19" /></svg></span>
+              Kvietimų nuorodos
+            </div>
+            <p class="card-sub">Nusiųsk kiekvienam asmeninę nuorodą. Prieš renginio pradžią gali pervadinti, atnaujinti arba pašalinti.</p>
+          </div>
+        </div>
+        <ul id="people" class="people"></ul>
+        <div id="people-empty" class="empty" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /></svg>
+          Kol kas nėra dalyvių. Pridėk ką nors viršuje.
+        </div>
+      </section>
+
+      <section class="card" id="results-card" hidden>
+        <div class="card-head">
+          <div>
+            <div class="card-title">
+              <span class="icon-chip" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1" /><path d="M12 8v13" /><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5" /></svg></span>
+              Kas kam dovanoja
+            </div>
+            <p class="card-sub">Kas kam dovanoja. Tai matai tik tu.</p>
+          </div>
+        </div>
+        <ul id="results" class="people"></ul>
+        <p class="card-sub" id="results-empty" hidden>Dar niekas netraukė vardo.</p>
+      </section>
+    </main>
+  </div>
+
+  <script src="/js/owner.js"></script>
+</body>
+</html>

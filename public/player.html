@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tavo Slaptasis Kalėdų senelis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="sky" id="sky" aria-hidden="true"></div>
+  <template id="sleigh-tpl">
+    <div class="flyer-bob">
+      <div class="flyer-face">
+        <svg class="sleigh-svg" viewBox="0 0 500 160">
+          <g class="sleigh">
+            <path d="M18 128 C52 150 124 150 156 122 C170 110 176 124 162 134" fill="none" stroke="#f6e3b0" stroke-width="4" stroke-linecap="round" />
+            <path d="M46 124 L54 96" fill="none" stroke="#e7c884" stroke-width="3.5" stroke-linecap="round" />
+            <path d="M126 120 L116 94" fill="none" stroke="#e7c884" stroke-width="3.5" stroke-linecap="round" />
+            <path d="M38 98 L48 60 C54 50 68 46 86 46 H124 C140 46 146 60 136 74 L128 98 Z" fill="#d61f3c" />
+            <path d="M50 78 L126 72 L120 96 L46 98 Z" fill="#a10f28" />
+            <path d="M56 68 H118" fill="none" stroke="#f6e3b0" stroke-width="3" stroke-linecap="round" />
+            <path d="M48 62 C26 56 18 76 36 90" fill="none" stroke="#a90f29" stroke-width="6" stroke-linecap="round" />
+            <path d="M122 50 C152 40 166 64 146 84" fill="none" stroke="#c8102e" stroke-width="8" stroke-linecap="round" />
+            <path d="M124 52 C148 44 158 64 144 78" fill="none" stroke="#f6e3b0" stroke-width="2" stroke-linecap="round" />
+            <rect x="62" y="52" width="22" height="16" rx="2.5" fill="#1c8a5a" />
+            <path d="M73 52 V68 M62 60 H84" fill="none" stroke="#f6e3b0" stroke-width="2" />
+            <rect x="90" y="48" width="18" height="18" rx="2.5" fill="#e7c884" />
+            <path d="M99 48 V66 M90 57 H108" fill="none" stroke="#a90f29" stroke-width="2" />
+            <circle cx="142" cy="74" r="5" fill="#f6e3b0" />
+            <circle cx="142" cy="74" r="2" fill="#a90f29" />
+          </g>
+
+          <g fill="none" stroke="#e7c884" stroke-width="1.8" stroke-linecap="round" opacity="0.95">
+            <path d="M150 82 C190 90 220 82 258 76" />
+            <path d="M272 74 C314 82 352 70 398 60" />
+          </g>
+
+          <g class="deer deer-back" transform="translate(188,36)">
+            <g class="gallop gallop-a" fill="none" stroke="#5c3a22" stroke-width="5.5" stroke-linecap="round">
+              <path d="M20 56 L6 92" />
+              <path d="M32 57 L24 94" />
+              <path d="M52 54 L74 86" />
+              <path d="M64 52 L86 74" />
+            </g>
+            <g class="gallop gallop-b" fill="none" stroke="#5c3a22" stroke-width="5.5" stroke-linecap="round">
+              <path d="M22 56 L14 94" />
+              <path d="M34 57 L44 92" />
+              <path d="M48 54 L40 92" />
+              <path d="M60 52 L70 90" />
+            </g>
+            <path d="M8 40 C-4 30 0 22 8 28 C10 32 10 36 8 40Z" fill="#e2b48c" />
+            <ellipse cx="42" cy="42" rx="32" ry="16" fill="#8d5a32" />
+            <path d="M66 34 C78 26 86 16 94 10" fill="none" stroke="#8d5a32" stroke-width="13" stroke-linecap="round" />
+            <ellipse cx="104" cy="12" rx="16" ry="10" fill="#a56d3c" />
+            <path d="M94 6 L88 -4 L102 5Z" fill="#a56d3c" />
+            <path d="M95 5 L91 0 L100 5Z" fill="#f0c8a4" />
+            <ellipse cx="116" cy="14" rx="9" ry="6.5" fill="#e2b48c" />
+            <circle cx="108" cy="10" r="2" fill="#2b1c12" />
+            <circle cx="108.7" cy="9.3" r="0.7" fill="#fff" />
+            <g fill="none" stroke="#f0d7a0" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M96 2 C90 -8 78 -12 72 -4" />
+              <path d="M88 -4 L82 -14" />
+              <path d="M84 0 L74 -2" />
+              <path d="M100 0 C106 -10 116 -10 114 -2" />
+              <path d="M108 -6 L114 -14" />
+            </g>
+            <circle class="nose-glow" cx="124" cy="14" r="8" fill="#ff4d4d" />
+            <circle class="nose" cx="124" cy="14" r="3.5" fill="#6e3d2c" />
+            <path d="M72 30 C80 38 92 34 96 24" fill="none" stroke="#d61f3c" stroke-width="4" stroke-linecap="round" />
+            <circle cx="84" cy="36" r="3.4" fill="#f6e3b0" />
+          </g>
+
+          <g class="deer rudolph" transform="translate(330,18)">
+            <g class="gallop gallop-a" fill="none" stroke="#5c3a22" stroke-width="5.5" stroke-linecap="round">
+              <path d="M20 56 L6 92" />
+              <path d="M32 57 L24 94" />
+              <path d="M52 54 L74 86" />
+              <path d="M64 52 L86 74" />
+            </g>
+            <g class="gallop gallop-b" fill="none" stroke="#5c3a22" stroke-width="5.5" stroke-linecap="round">
+              <path d="M22 56 L14 94" />
+              <path d="M34 57 L44 92" />
+              <path d="M48 54 L40 92" />
+              <path d="M60 52 L70 90" />
+            </g>
+            <path d="M8 40 C-4 30 0 22 8 28 C10 32 10 36 8 40Z" fill="#e2b48c" />
+            <ellipse cx="42" cy="42" rx="32" ry="16" fill="#8d5a32" />
+            <path d="M66 34 C78 26 86 16 94 10" fill="none" stroke="#8d5a32" stroke-width="13" stroke-linecap="round" />
+            <ellipse cx="104" cy="12" rx="16" ry="10" fill="#a56d3c" />
+            <path d="M94 6 L88 -4 L102 5Z" fill="#a56d3c" />
+            <path d="M95 5 L91 0 L100 5Z" fill="#f0c8a4" />
+            <ellipse cx="116" cy="14" rx="9" ry="6.5" fill="#e2b48c" />
+            <circle cx="108" cy="10" r="2" fill="#2b1c12" />
+            <circle cx="108.7" cy="9.3" r="0.7" fill="#fff" />
+            <g fill="none" stroke="#f0d7a0" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M96 2 C90 -8 78 -12 72 -4" />
+              <path d="M88 -4 L82 -14" />
+              <path d="M84 0 L74 -2" />
+              <path d="M100 0 C106 -10 116 -10 114 -2" />
+              <path d="M108 -6 L114 -14" />
+            </g>
+            <circle class="nose-glow" cx="124" cy="14" r="8" fill="#ff4d4d" />
+            <circle class="nose" cx="124" cy="14" r="3.5" fill="#6e3d2c" />
+            <path d="M72 30 C80 38 92 34 96 24" fill="none" stroke="#d61f3c" stroke-width="4" stroke-linecap="round" />
+            <circle cx="84" cy="36" r="3.4" fill="#f6e3b0" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </template>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 8.5 8.5h7L12 3Z" /><path d="M12 7.5 7 14h10l-5-6.5Z" /><path d="M12 12.5 5.5 20h13L12 12.5Z" /><path d="M12 20v2" />
+          </svg>
+        </span>
+        <div>
+          <div class="name" id="event-title">Slaptasis Kalėdų senelis</div>
+          <div class="tag">Tavo slapta misija</div>
+        </div>
+      </div>
+      <span class="pill" id="status-pill" hidden><span class="dot"></span><span id="status-text"></span></span>
+    </header>
+
+    <p id="error" class="alert error" hidden></p>
+
+    <section id="loading" class="card">
+      <div class="empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+        Ruošiam tavo dovanų maišą...
+      </div>
+    </section>
+
+    <main id="app" class="stage" hidden>
+      <h1 class="stage-title" id="greeting">Labas!</h1>
+      <p class="stage-sub" id="subtitle"></p>
+
+      <div id="waiting" class="alert info" hidden style="max-width:520px;margin:24px auto 0;text-align:left">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>
+        <span id="waiting-text">Organizatorius dar nepradėjo žaidimo. Puslapis atsinaujins pats – kol kas gali ramiai gurkšnoti kakavą.</span>
+      </div>
+
+      <div class="draw-stage" id="draw-stage" hidden>
+        <div class="draw-scene">
+          <svg id="santa-scene" class="santa-scene" viewBox="0 0 520 420" role="img" aria-label="Kalėdų senelis traukia vardą iš dovanų maišo">
+            <defs>
+              <linearGradient id="coat" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#e8475d" />
+                <stop offset="1" stop-color="#a90f29" />
+              </linearGradient>
+              <linearGradient id="sack" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#b1793f" />
+                <stop offset="1" stop-color="#5f3a1a" />
+              </linearGradient>
+              <linearGradient id="paperGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fffdf6" />
+                <stop offset="1" stop-color="#efe0bd" />
+              </linearGradient>
+              <radialGradient id="glow" cx="50%" cy="45%" r="55%">
+                <stop offset="0" stop-color="#e7c884" stop-opacity="0.45" />
+                <stop offset="1" stop-color="#e7c884" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+
+            <ellipse cx="260" cy="396" rx="215" ry="18" fill="rgba(0,0,0,0.35)" />
+            <circle cx="250" cy="210" r="180" fill="url(#glow)" />
+
+            <g>
+              <rect x="132" y="352" width="34" height="44" rx="12" fill="#2a2a33" />
+              <rect x="186" y="352" width="34" height="44" rx="12" fill="#2a2a33" />
+              <rect x="124" y="384" width="50" height="18" rx="9" fill="#15151b" />
+              <rect x="182" y="384" width="50" height="18" rx="9" fill="#15151b" />
+              <path d="M 118 268 C 106 312 112 366 150 384 C 184 400 218 386 232 356 C 244 330 242 296 238 268 C 220 250 138 250 118 268 Z" fill="url(#coat)" stroke="#7d0a1e" stroke-width="3" />
+              <rect x="116" y="318" width="126" height="18" rx="6" fill="#241a12" />
+              <rect x="170" y="314" width="22" height="26" rx="5" fill="#e7c884" />
+              <path d="M 120 366 C 150 384 206 388 236 360" stroke="#f6f1e6" stroke-width="12" stroke-linecap="round" fill="none" />
+              <circle cx="176" cy="188" r="44" fill="#f2c9a0" />
+              <path d="M 138 196 C 132 232 150 254 176 254 C 202 254 220 232 214 196 C 200 214 152 214 138 196 Z" fill="#f6f1e6" />
+              <circle cx="160" cy="184" r="4.5" fill="#33261c" />
+              <circle cx="194" cy="184" r="4.5" fill="#33261c" />
+              <circle cx="177" cy="198" r="8" fill="#e08c7a" />
+              <circle cx="150" cy="198" r="7" fill="#efb1a2" opacity="0.7" />
+              <circle cx="206" cy="198" r="7" fill="#efb1a2" opacity="0.7" />
+              <path d="M 134 168 C 138 132 168 112 196 124 C 214 132 224 150 222 168 Z" fill="url(#coat)" stroke="#7d0a1e" stroke-width="3" />
+              <path d="M 128 166 C 150 156 206 156 228 166 C 232 174 226 182 216 182 C 190 172 162 172 138 182 C 128 182 124 174 128 166 Z" fill="#f6f1e6" />
+              <circle cx="222" cy="122" r="15" fill="#f6f1e6" />
+              <g id="rest-arm">
+                <path d="M 122 272 C 104 292 100 322 112 344" stroke="#c8102e" stroke-width="28" stroke-linecap="round" fill="none" />
+                <circle cx="114" cy="348" r="16" fill="#f2c9a0" stroke="#d9a878" stroke-width="2" />
+              </g>
+              <g id="wave-arm">
+                <path d="M 140 286 C 112 262 88 232 74 208" stroke="#c8102e" stroke-width="30" stroke-linecap="round" fill="none" />
+                <g id="wave-forearm">
+                  <path d="M 74 208 C 64 188 54 168 46 152" stroke="#c8102e" stroke-width="26" stroke-linecap="round" fill="none" />
+                  <g transform="translate(42 146) rotate(-16)">
+                    <rect x="-14" y="-6" width="28" height="12" rx="6" fill="#f6f1e6" />
+                    <ellipse cx="0" cy="-18" rx="15" ry="16" fill="#d61f3c" stroke="#8d1024" stroke-width="1.4" />
+                    <ellipse cx="-14" cy="-10" rx="7" ry="9" fill="#e8475d" stroke="#8d1024" stroke-width="1.2" />
+                    <path d="M -9 -6 Q 1 0 12 -6" stroke="#f6f1e6" stroke-width="4" fill="none" stroke-linecap="round" />
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            <g transform="translate(344,150)">
+              <g id="paper" transform="translate(0,195) scale(0.52) rotate(0)">
+                <rect x="-80" y="-58" width="160" height="116" rx="8" fill="url(#paperGrad)" stroke="#d8c39a" stroke-width="2" />
+                <rect x="-80" y="-58" width="160" height="10" rx="5" fill="#1c8a5a" opacity="0.85" />
+                <text x="0" y="-30" text-anchor="middle" font-size="10" fill="#8a7355" font-family="Inter, sans-serif" letter-spacing="0.5">DOVANĖLĘ DOVANOSI:</text>
+                <text id="paper-name" x="0" y="-6" text-anchor="middle" dominant-baseline="middle" font-size="27" font-weight="700" fill="#3b2a1a" font-family="Georgia, 'Times New Roman', serif" font-style="italic"></text>
+              </g>
+            </g>
+
+            <g transform="translate(232,266)">
+              <g id="arm" transform="rotate(-16)">
+                <path d="M 0 0 C 34 8 68 6 100 0" stroke="#c8102e" stroke-width="30" stroke-linecap="round" fill="none" />
+                <circle cx="103" cy="0" r="17" fill="#f2c9a0" stroke="#d9a878" stroke-width="2" />
+                <circle cx="116" cy="-8" r="7" fill="#f2c9a0" stroke="#d9a878" stroke-width="2" />
+              </g>
+            </g>
+
+            <g id="bag">
+              <path d="M 288 300 C 274 344 284 386 336 394 C 390 402 408 356 400 314 C 394 286 362 276 338 280 C 314 284 296 288 288 300 Z" fill="url(#sack)" stroke="#4a2a12" stroke-width="3" />
+              <ellipse cx="344" cy="292" rx="54" ry="16" fill="#3a210c" />
+              <path d="M 292 294 C 316 280 372 278 396 292" stroke="#c99055" stroke-width="7" stroke-linecap="round" fill="none" />
+              <path d="M 300 296 C 322 286 366 284 388 294" stroke="#7a4a20" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.7" />
+              <path d="M 322 322 C 332 352 332 374 324 392" stroke="#5d3818" stroke-width="3" fill="none" opacity="0.5" />
+              <path d="M 360 318 C 368 350 366 374 358 392" stroke="#5d3818" stroke-width="3" fill="none" opacity="0.4" />
+            </g>
+
+            <g id="sparkles" opacity="0">
+              <path d="M 250 250 l 4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4 z" fill="#f6e3b0" />
+              <path d="M 420 250 l 3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 z" fill="#f6e3b0" />
+              <circle cx="272" cy="322" r="4" fill="#ffffff" />
+              <circle cx="405" cy="330" r="5" fill="#f6e3b0" />
+              <circle cx="352" cy="232" r="3.5" fill="#ffffff" />
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="btn-row center">
+        <button id="spin" class="btn gold" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1" /><path d="M12 8v13" /><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" /><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5" /></svg>
+          Traukti vardą!
+        </button>
+      </div>
+    </main>
+
+    <p class="footer">Sukurta su Slaptuoju Kalėdų seneliu &middot; <a href="/">į pradžią</a></p>
+  </div>
+
+  <script src="/js/player.js"></script>
+</body>
+</html>

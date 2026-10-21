@@ -1,0 +1,15 @@
+{
+  "name": "secret-santa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kalėdų slaptojo Kalėdų senelio burtų žaidimas su kvietimo nuorodomis, organizatoriaus skydeliu ir Kalėdų seneliu, traukiančiu vardus iš maišo.",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch src/server.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  }
+}
